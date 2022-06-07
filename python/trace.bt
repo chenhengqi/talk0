@@ -1,0 +1,6 @@
+#!/usr/bin/env bpftrace
+
+usdt:/proc/2076549/root/usr/bin/python3:python:function__entry {
+	printf("function__entry: file: %s, func: %s, line: %d\n",
+	       str(arg0), str(arg1), arg2);
+}

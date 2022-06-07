@@ -1,0 +1,17 @@
+#!/usr/bin/env bpftrace
+
+uprobe:/root/talk/golang/hello15:main.hello {
+	printf("%s: %s %s\n", comm, str(arg0), str(arg1));
+}
+
+uprobe:/root/talk/golang/hello16:main.hello {
+	printf("%s: %s %s\n", comm, str(arg0), str(arg1));
+}
+
+uprobe:/root/talk/golang/hello17:main.hello {
+	printf("%s: %s %s\n", comm, str(arg0), str(arg1));
+}
+
+uprobe:/root/talk/golang/hello18:main.hello {
+	printf("%s: %s %s\n", comm, str(arg0), str(arg1));
+}

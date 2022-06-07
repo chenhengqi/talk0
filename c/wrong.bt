@@ -1,0 +1,5 @@
+#!/usr/bin/env bpftrace
+
+uprobe:/root/talk/c/a.out:print {
+	printf("%s\n", str(arg0));
+}

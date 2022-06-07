@@ -1,0 +1,11 @@
+#!/usr/bin/env bpftrace
+
+struct Bar {
+	char padding[12];
+	int data;
+};
+
+uprobe:/root/talk/cpp/a.out:_ZN6Logger5debugEP3Bar {
+	$bar = (struct Bar *)arg1;
+	printf("Logger::debug: %d\n", $bar->data);
+}

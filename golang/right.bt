@@ -1,0 +1,23 @@
+#!/usr/bin/env bpftrace
+
+uprobe:/root/talk/golang/hello15:main.hello {
+	$sp = reg("sp");
+	printf("%s: %s %s\n", comm, str(*($sp + 8)), str(*($sp + 24)));
+}
+
+uprobe:/root/talk/golang/hello16:main.hello {
+	$sp = reg("sp");
+	printf("%s: %s %s\n", comm, str(*($sp + 8)), str(*($sp + 24)));
+}
+
+uprobe:/root/talk/golang/hello17:main.hello {
+	$ax = reg("ax");
+	$cx = reg("cx");
+	printf("%s: %s %s\n", comm, str($ax), str($cx));
+}
+
+uprobe:/root/talk/golang/hello18:main.hello {
+	$ax = reg("ax");
+	$cx = reg("cx");
+	printf("%s: %s %s\n", comm, str($ax), str($cx));
+}

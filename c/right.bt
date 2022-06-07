@@ -1,0 +1,10 @@
+#!/usr/bin/env bpftrace
+
+uprobe:/root/talk/c/a.out:print {
+	@[tid] = arg0;
+}
+
+uretprobe:/root/talk/c/a.out:print {
+	printf("%s\n", str(@[tid]));
+	delete(@[tid]);
+}
