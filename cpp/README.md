@@ -13,3 +13,7 @@ Logger::debug(Bar*)
 
 * For method, arg0 is `this` pointer
 * vtable
+
+## Problem
+
+  https://github.com/grpc/grpc/issues/18365
